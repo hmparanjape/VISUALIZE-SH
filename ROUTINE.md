@@ -17,7 +17,7 @@ promote them.
 
 ## Prompt to schedule
 
-> You are updating the VISUALIZE-HF dataset. Work only inside `data/*.yaml`.
+> You are updating the VISUALIZE-SH dataset. Work only inside `data/*.yaml`.
 >
 > 1. Read `schema/DATA_DICTIONARY.md` and follow it exactly, including the
 >    "Hard rules for an automated update routine".
@@ -41,13 +41,18 @@ promote them.
 >    (a quiet topic should drift down). `pulse` is the one field you may change on a
 >    `curated` entity without flipping it to draft — it is a presentation signal,
 >    not a clinical claim. Keep scores relative across the whole dataset.
-> 6. Do NOT modify the other facts of existing `curated` entities. If something
+> 6. Add `links` (`{label, url}`) where you can VERIFY a specific URL: for devices,
+>    the product page on the maker's site (else a journal/medical-news/clinical
+>    source); for trials, a non-ClinicalTrials.gov outcome summary (primary paper,
+>    TCTMD, guideline). Never invent a URL — the panel already shows a PubMed search
+>    fallback, so omitting `links` is fine. Ensure companies have a `website`.
+> 7. Do NOT modify the other facts of existing `curated` entities. If something
 >    curated looks outdated, instead add a `curation.notes` flag on it describing
 >    the suggested change for human review.
-> 7. Run `npm run build:data` and fix every error until it passes.
-> 8. Output a concise summary: each id you added/changed, what it is, the source,
+> 8. Run `npm run build:data` and fix every error until it passes.
+> 9. Output a concise summary: each id you added/changed, what it is, the source,
 >    and anything the human curator should double-check (especially regulatory
 >    status and NCT ids).
 >
 > Accuracy over completeness — when uncertain, omit optional fields (especially
-> `nctId`) rather than guessing.
+> `nctId` and `links`) rather than guessing.
