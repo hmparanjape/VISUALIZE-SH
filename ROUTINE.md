@@ -46,11 +46,17 @@ promote them.
 >    source); for trials, a non-ClinicalTrials.gov outcome summary (primary paper,
 >    TCTMD, guideline). Never invent a URL — the panel already shows a PubMed search
 >    fallback, so omitting `links` is fine. Ensure companies have a `website`.
-> 7. Do NOT modify the other facts of existing `curated` entities. If something
+> 7. Add `timeline` for new therapies and trials when you can verify the date. For
+>    therapies, use the earliest FDA approval or CE mark for the specific
+>    product/therapy; if that is not verifiable, use a credible US/EU general
+>    availability announcement and document the assumption in `timeline.notes`. For
+>    trials, use the trial start date, preferably from ClinicalTrials.gov. Do not
+>    add `timeline` to companies, and do not guess dates.
+> 8. Do NOT modify the other facts of existing `curated` entities. If something
 >    curated looks outdated, instead add a `curation.notes` flag on it describing
 >    the suggested change for human review.
-> 8. Run `npm run build:data` and fix every error until it passes.
-> 9. Output a concise summary: each id you added/changed, what it is, the source,
+> 9. Run `npm run build:data` and fix every error until it passes.
+> 10. Output a concise summary: each id you added/changed, what it is, the source,
 >    and anything the human curator should double-check (especially regulatory
 >    status and NCT ids).
 >
